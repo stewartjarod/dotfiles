@@ -25,6 +25,7 @@ brew 'spaceman-diff'
 brew 'spark'
 brew 'unrar'
 brew 'wget'
+brew 'htop'
 
 cask 'dropbox'
 cask '1password'
