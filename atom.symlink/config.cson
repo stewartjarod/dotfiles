@@ -23,6 +23,10 @@
     showIndentGuide: true
   "go-plus":
     goPath: "/Users/stewartjarod/Code/go"
+  "linter-eslint":
+    useGlobalEslint: true
+  "release-notes":
+    viewedVersion: "0.89.0"
   "spell-check":
     grammars: [
       "text.plain"
