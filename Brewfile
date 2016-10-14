@@ -28,6 +28,7 @@ brew 'spark'
 brew 'unrar'
 brew 'wget'
 brew 'htop'
+brew 'yarn'
 
 cask 'dropbox'
 cask '1password'
