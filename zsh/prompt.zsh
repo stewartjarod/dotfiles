@@ -225,6 +225,25 @@ prompt_virtualenv() {
   fi
 }
 
+# Ruby Version
+prompt_ruby() {
+  if (( $+commands[rbenv] ))
+  then
+    local ruby_version="$(rbenv version | awk '{print $1}')"
+    if [[ $ruby_version != "system" ]]; then
+      prompt_segment white black "`basename $ruby_version`"
+    fi
+  fi
+
+  if (( $+commands[rvm-prompt] ))
+  then
+    local ruby_version="$(rvm-prompt | awk '{print $1}')"
+    if [[ $ruby_version != "system" ]]; then
+      prompt_segment white black "`basename $ruby_version`"
+    fi
+  fi
+}
+
 # Status:
 # - was there an error
 # - am I root
@@ -244,6 +263,7 @@ build_prompt() {
   RETVAL=$?
   prompt_status
   prompt_virtualenv
+  prompt_ruby
   prompt_context
   prompt_dir
   prompt_git
