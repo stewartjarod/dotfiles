@@ -19,7 +19,8 @@ alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
 alias gc='git commit -am'
 alias gcam='git commit -a --amend'
 alias gad='git add . && git commit -am'
-alias gco='git checkout'
+alias gco='git checkout -b'
+
 alias gcb='git copy-branch-name'
 alias gb='git branch'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
