@@ -8,3 +8,5 @@ then
   alias ll="gls -lh --color"
   alias la='gls -A --color'
 fi
+
+alias vim="vi"
