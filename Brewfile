@@ -30,6 +30,7 @@ brew 'unrar'
 brew 'wget'
 brew 'htop'
 brew 'yarn'
+brew 'vim'
 
 cask 'dropbox'
 cask '1password'

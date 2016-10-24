@@ -23,3 +23,59 @@ alias gco='git checkout'
 alias gcb='git copy-branch-name'
 alias gb='git branch'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
+
+function gtag() {
+  git fetch --all --tags
+  if [ -n $1 ]
+  then
+    echo "› Creating tag: v$1"
+    if git tag -a "v$1" -m "v$1" >/dev/null
+    then
+      echo "› Pushing Tag to Upstream"
+      # git push upstream --tags
+    else
+      echo "EXITING"
+      exit 0
+    fi
+  else
+    echo "Must pass tag"
+  fi
+}
+
+
+function tag() {
+  if [ -n $1 ]
+  then
+    current_tag="$(git describe --abbrev=0 --tags)"
+    echo "› Current Tag: $current_tag"
+    vers=("${(@s/./)current_tag}")
+    patch=$vers[3]
+    minor=$vers[2]
+    major=${vers[1][2,-1]}
+
+    if [ $1 == "p" ]
+    then
+      echo "› Patching"
+      patch=$(($patch + 1))
+    elif [ $1 == "min" ]
+    then
+      echo "› Minor Update"
+      minor=$(($minor + 1))
+      patch=0
+    elif [ $1 == "maj" ]
+    then
+      echo "› Major Update"
+      major=$(($major + 1))
+      minor=0
+      patch=0
+    else
+      echo '›› Failed to create tag'
+      exit 0
+    fi
+
+    echo "› Updating to: v$major.$minor.$patch"
+    gtag $major.$minor.$patch
+  else
+    echo "››› Must pass tag"
+  fi
+}
