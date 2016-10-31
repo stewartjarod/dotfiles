@@ -1,4 +1,7 @@
 "*":
+  "atom-beautify":
+    general:
+      analytics: false
   core:
     disabledPackages: [
       "background-tips"
@@ -15,6 +18,7 @@
       "tmp"
       "vendor"
     ]
+    telemetryConsent: "no"
   editor:
     fontFamily: "Menlo"
     fontSize: 16
@@ -34,5 +38,9 @@
       "text.git-commit"
       "text.html.basic"
     ]
+  wakatime:
+    apikey: "Saved in your ~/.wakatime.cfg file"
+  "wakatime-hidden":
+    lastInit: 1477942344
   welcome:
     showOnStartup: false

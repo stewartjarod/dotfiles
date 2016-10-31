@@ -9,9 +9,12 @@ fi
 # The rest of my fun git aliases
 alias gl='git pull --prune'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-alias gp='git push origin HEAD'
 
-alias gup='git pull upstream master'
+alias gpush='git push origin HEAD'
+alias gpull='git pull upstream master'
+
+alias gpl='git pull'
+alias gpu='git push'
 
 # Remove `+` and `-` from start of diff lines; just rely upon color.
 alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
@@ -19,7 +22,7 @@ alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
 alias gc='git commit -am'
 alias gcam='git commit -a --amend'
 alias gad='git add . && git commit -am'
-alias gco='git checkout -b'
+alias gco='git checkout'
 
 alias gcb='git copy-branch-name'
 alias gb='git branch'
@@ -33,10 +36,10 @@ function gtag() {
     if git tag -a "v$1" -m "v$1" >/dev/null
     then
       echo "› Pushing Tag to Upstream"
-      # git push upstream --tags
+      git push upstream --tags
     else
       echo "EXITING"
-      exit 0
+      return
     fi
   else
     echo "Must pass tag"
@@ -71,7 +74,7 @@ function tag() {
       patch=0
     else
       echo '›› Failed to create tag'
-      exit 0
+      return
     fi
 
     echo "› Updating to: v$major.$minor.$patch"
