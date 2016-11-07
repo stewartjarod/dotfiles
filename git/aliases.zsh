@@ -57,16 +57,16 @@ function tag() {
     minor=$vers[2]
     major=${vers[1][2,-1]}
 
-    if [ $1 == "p" ]
+    if [ $1 == "p" ] || [ $1 == "patch" ]
     then
       echo "› Patching"
       patch=$(($patch + 1))
-    elif [ $1 == "min" ]
+    elif [ $1 == "min" ] || [ $1 == "m" ]
     then
       echo "› Minor Update"
       minor=$(($minor + 1))
       patch=0
-    elif [ $1 == "maj" ]
+    elif [ $1 == "maj" ] || [ $1 == "M" ]
     then
       echo "› Major Update"
       major=$(($major + 1))

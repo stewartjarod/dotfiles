@@ -7,6 +7,7 @@
       "background-tips"
       "exception-reporting"
       "metrics"
+      "git-blame"
     ]
     followSymlinks: false
     hideGitIgnoredFiles: true
@@ -41,6 +42,6 @@
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":
-    lastInit: 1477942344
+    lastInit: 1478543191
   welcome:
     showOnStartup: false
