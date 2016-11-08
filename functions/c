@@ -7,7 +7,7 @@
 #   c <tab>
 #
 # ...to autocomplete on all of your projects in the directories specified in
-# `functions/_c`. Typically I'm using it like:
+# `functions/_c`. Typically I use it like:
 #
 #    c holm<tab>/bo<tab>
 #
@@ -21,4 +21,5 @@ if [ ! -z "$1" ] && [ -s "$GOPATH/src/github.com/$1" ]; then
   cd "$GOPATH/src/github.com/$1"
 else
   cd "$PROJECTS/$1"
+  activate_virtual_env
 fi

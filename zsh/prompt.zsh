@@ -217,14 +217,6 @@ prompt_dir() {
   prompt_segment blue black '%~'
 }
 
-# Virtualenv: current working virtualenv
-prompt_virtualenv() {
-  local virtualenv_path="$VIRTUAL_ENV"
-  if [[ -n $virtualenv_path ]]; then
-    prompt_segment white black "(`basename $virtualenv_path`)"
-  fi
-}
-
 # Ruby Version
 prompt_ruby() {
   if (( $+commands[rbenv] ))
@@ -262,7 +254,6 @@ prompt_status() {
 build_prompt() {
   RETVAL=$?
   prompt_status
-  prompt_virtualenv
   prompt_ruby
   prompt_context
   prompt_dir
