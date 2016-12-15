@@ -16,6 +16,7 @@ brew 'jq'
 brew 'libcaca', args: ['with-imlib2']
 brew 'libgit2'
 brew 'openssl'
+brew 'libxmlsec1'
 brew 'node'
 brew 'readline'
 brew 'postgresql'

@@ -29,7 +29,6 @@ alias gb='git branch'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 
 function gtag() {
-  git fetch --all --tags
   if [ -n $1 ]
   then
     echo "› Creating tag: v$1"
@@ -50,6 +49,7 @@ function gtag() {
 function tag() {
   if [ -n $1 ]
   then
+    # git fetch --all --tags
     current_tag="$(git describe --abbrev=0 --tags)"
     echo "› Current Tag: $current_tag"
     vers=("${(@s/./)current_tag}")
@@ -57,16 +57,16 @@ function tag() {
     minor=$vers[2]
     major=${vers[1][2,-1]}
 
-    if [ $1 == "p" ] || [ $1 == "patch" ]
+    if [[ "$1" == "p" || "$1" == "patch" ]]
     then
       echo "› Patching"
       patch=$(($patch + 1))
-    elif [ $1 == "min" ] || [ $1 == "m" ]
+    elif [[ $1 == "min" || $1 == "m" ]]
     then
       echo "› Minor Update"
       minor=$(($minor + 1))
       patch=0
-    elif [ $1 == "maj" ] || [ $1 == "M" ]
+    elif [[ $1 == "maj" || $1 == "M" ]]
     then
       echo "› Major Update"
       major=$(($major + 1))
