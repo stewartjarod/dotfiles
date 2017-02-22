@@ -1,5 +1,8 @@
 #compdef c
 _files -W $PROJECTS -/
-_files -W $GOPATH/src/github.com -/
+_files -W $GOPATH/src/github.com/stewartjarod -/
+_files -W $GOPATH/src/gitlab.com/stewartjarod -/
+_files -W $GOPATH/src/github.com/simpleenergy -/
+
 
 # See further documentation in `functions/c`.

@@ -11,7 +11,7 @@ alias gl='git pull --prune'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 alias gpush='git push origin HEAD'
-alias gpull='git pull upstream master'
+alias gpull='git pull origin master'
 
 alias gpl='git pull'
 alias gpu='git push'
@@ -49,7 +49,7 @@ function gtag() {
 function tag() {
   if [ -n $1 ]
   then
-    # git fetch --all --tags
+    git fetch --all --tags
     current_tag="$(git describe --abbrev=0 --tags)"
     echo "› Current Tag: $current_tag"
     vers=("${(@s/./)current_tag}")
