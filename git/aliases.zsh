@@ -35,7 +35,7 @@ function gtag() {
     if git tag -a "v$1" -m "v$1" >/dev/null
     then
       echo "› Pushing Tag to Upstream"
-      git push upstream --tags
+      git push origin --tags
     else
       echo "EXITING"
       return
