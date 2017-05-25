@@ -28,6 +28,8 @@
     showIndentGuide: true
   "go-plus":
     goPath: "/Users/stewartjarod/Code/go"
+  kite:
+    showKiteTourOnStatup: false
   "linter-eslint":
     useGlobalEslint: true
   "release-notes":
