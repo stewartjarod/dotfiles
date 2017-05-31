@@ -25,6 +25,7 @@ alias gad='git add . && git commit -am'
 alias gco='git checkout'
 alias grbm='git fetch --all & git rebase origin/master --no-ff'
 
+alias gdelorigin="git branch -r --merged | grep -v master | sed 's/origin\//:/' | xargs -n 1 git push origin"
 alias gdelete="git for-each-ref --format '%(refname:short)' refs/heads | grep -v master | xargs git branch -D"
 
 alias gcb='git copy-branch-name'
