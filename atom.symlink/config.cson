@@ -32,6 +32,8 @@
     showKiteTourOnStatup: false
   "linter-eslint":
     useGlobalEslint: true
+  "linter-ui-default":
+    showPanel: true
   "release-notes":
     viewedVersion: "0.89.0"
   "spell-check":
