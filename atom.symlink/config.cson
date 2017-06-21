@@ -43,6 +43,7 @@
       "text.git-commit"
       "text.html.basic"
     ]
+  "terraform-fmt": {}
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":

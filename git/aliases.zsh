@@ -70,7 +70,7 @@ function tag() {
       echo "› Minor Update"
       minor=$(($minor + 1))
       patch=0
-    elif [[ $1 == "M" || $1 == "maj" || $1 == "major"]]
+    elif [[ $1 == "M" || $1 == "maj" || $1 == "major" ]]
     then
       echo "› Major Update"
       major=$(($major + 1))
