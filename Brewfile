@@ -32,6 +32,7 @@ brew 'wget'
 brew 'htop'
 brew 'yarn'
 brew 'vim'
+brew 'nvm'
 
 cask 'dropbox'
 cask '1password'
