@@ -11,9 +11,9 @@ alias gl='git pull --prune'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 alias gpush='git push origin HEAD'
-alias gpull='git pull origin master'
+alias gpull='git pull origin master --rebase'
 
-alias gpl='git pull'
+alias gpl='git pull --rebase'
 alias gpu='git push'
 
 # Remove `+` and `-` from start of diff lines; just rely upon color.

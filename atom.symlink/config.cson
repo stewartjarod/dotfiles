@@ -21,11 +21,13 @@
     ]
     telemetryConsent: "no"
   editor:
+    autoIndent: false
     fontFamily: "Menlo"
     fontSize: 16
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
+    showInvisibles: true
   "go-plus":
     goPath: "/Users/stewartjarod/Code/go"
   kite:
