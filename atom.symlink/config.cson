@@ -7,7 +7,6 @@
       "background-tips"
       "exception-reporting"
       "metrics"
-      "git-blame"
     ]
     followSymlinks: false
     hideGitIgnoredFiles: true
@@ -28,6 +27,10 @@
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
+  "git-blame":
+    dateFormatString: " "
+    ignoreWhiteSpaceDiffs: true
+    showOnlyLastNames: true
   "go-plus":
     goPath: "/Users/stewartjarod/Code/go"
   kite:
