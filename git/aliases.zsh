@@ -11,7 +11,7 @@ alias gl='git pull --prune'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 alias gpush='git push origin HEAD'
-alias gpull='git pull origin master --rebase'
+alias gpull="git pull --rebase origin $(git branch | grep -E '^\* ' | sed 's/^\* //g')"
 
 alias gpl='git pull --rebase'
 alias gpu='git push'
