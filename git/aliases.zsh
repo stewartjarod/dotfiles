@@ -12,8 +12,12 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C
 
 alias gpush='git push origin HEAD'
 
-alias current_branch="echo $(git branch | grep -E '^\* ' | sed 's/^\* //g')"
-alias gpull='git pull --rebase origin $current_branch'
+function gcb() {
+  echo $(git branch | grep -E '^\* ' | sed 's/^\* //g')
+}
+function gpull() {
+  git pull --rebase origin $(gcb)
+}
 
 alias gpl='git pull --rebase'
 alias gpu='git push'

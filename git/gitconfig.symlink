@@ -30,8 +30,7 @@
         # for more information on different options of the below setting.
         #
         # Setting to git 2.0 default to suppress warning message
-        default = simple
-[pull]
+        default = current
         remote = origin
 [credential]
 	      helper = osxkeychain
@@ -39,5 +38,6 @@
         autosetuprebase = always
         remote = origin
 [branch "master"]
+        autosetuprebase = never
         remote = origin
         merge = refs/heads/master
