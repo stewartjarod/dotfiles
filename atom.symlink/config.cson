@@ -7,6 +7,8 @@
       "background-tips"
       "exception-reporting"
       "metrics"
+      "git-blame"
+      "webbox-color"
     ]
     followSymlinks: false
     hideGitIgnoredFiles: true
