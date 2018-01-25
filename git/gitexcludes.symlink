@@ -2,3 +2,5 @@
 .idea
 .thincloud.json
 .vscode/*
+*/dockerWatch.sh
+*/mongoDevImport.sh
