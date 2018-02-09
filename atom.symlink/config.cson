@@ -2,6 +2,8 @@
   "atom-beautify":
     general:
       analytics: false
+  "atom-minify":
+    cssMinifier: "CSSO"
   core:
     disabledPackages: [
       "background-tips"
