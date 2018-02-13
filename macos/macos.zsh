@@ -1,6 +1,10 @@
 # Open the current directory in a Finder window
 alias ofd='open_command $PWD'
 
+# Show/hide hidden files in the Finder
+alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
 function _omz_osx_get_frontmost_app() {
   local the_app=$(
     osascript 2>/dev/null <<EOF
@@ -518,8 +522,3 @@ function spotify() {
     esac
   done
 }
-
-
-# Show/hide hidden files in the Finder
-alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
