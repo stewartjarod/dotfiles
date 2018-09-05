@@ -24,13 +24,13 @@
     ]
     telemetryConsent: "no"
   editor:
-    autoIndent: false
     fontFamily: "Menlo"
     fontSize: 16
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
+    tabType: "soft"
   "git-blame":
     dateFormatString: " "
     ignoreWhiteSpaceDiffs: true

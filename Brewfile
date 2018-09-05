@@ -31,6 +31,7 @@ brew 'htop'
 brew 'vim'
 brew 'nvm'
 brew 'awscli'
+brew 'bat'
 
 cask 'dropbox'
 cask '1password'
