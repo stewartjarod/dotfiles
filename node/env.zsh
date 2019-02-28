@@ -1,0 +1,2 @@
+export npm_config_save_exact=true
+export npm_config_strict_ssl=true
