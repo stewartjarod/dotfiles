@@ -1,5 +1,5 @@
 if test $(which pod)
 then
-  pod setup
+  sudo pod setup
 fi
 exit 0
