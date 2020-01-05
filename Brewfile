@@ -1,55 +1,78 @@
-cask_args appdir: '/Applications'
-
-tap 'homebrew/bundle'
-
-brew 'ack'
-brew 'coreutils'
-brew 'git'
-brew 'httpie'
-brew 'tmux'
-brew 'tmux-cssh'
-brew 'go'
-brew 'grc'
-brew 'imagemagick'
-brew 'jp2a'
-brew 'jq'
-brew 'libcaca', args: ['with-imlib2']
-brew 'libgit2'
-brew 'openssl'
-brew 'libxmlsec1'
-brew 'readline'
-brew 'postgresql'
-brew 'rbenv'
-brew 'ripgrep'
-brew 'roundup'
-brew 'spaceman-diff'
-brew 'spark'
-brew 'unrar'
-brew 'wget'
-brew 'htop'
-brew 'vim'
-brew 'nvm'
-brew 'awscli'
-brew 'bat'
-brew 'libimobiledevice'
-brew 'ideviceinstaller'
-brew 'ios-deploy'
-brew 'cocoapods'
-
-cask 'dropbox'
-cask '1password'
-cask 'atom'
-cask 'firefox'
-cask 'google-chrome'
-cask 'slack'
-cask 'vlc'
-cask 'spotify'
-cask 'iterm2'
-cask 'jetbrains-toolbox'
-# cask 'gpgtools'
-# cask 'keycastr'
-cask 'flux'
-cask 'keybase'
-cask 'xquartz'
-cask 'brave'
-cask 'tunnelbear'
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "puma/puma"
+cask "xquartz"
+brew "ack"
+brew "readline"
+brew "awscli"
+brew "bat"
+brew "cocoapods"
+brew "coreutils"
+brew "crystal"
+brew "exa"
+brew "git"
+brew "go"
+brew "grc"
+brew "htop"
+brew "httpie"
+brew "hugo"
+brew "libimobiledevice"
+brew "ideviceinstaller"
+brew "imagemagick"
+brew "ios-deploy"
+brew "jp2a"
+brew "jq"
+brew "libcaca"
+brew "libgit2"
+brew "libxmlsec1"
+brew "llvm"
+brew "mas"
+brew "mysql"
+brew "nvm"
+brew "postgresql", restart_service: true
+brew "postgresql@9.6"
+brew "ruby-build"
+brew "rbenv"
+brew "ripgrep"
+brew "roundup"
+brew "spaceman-diff"
+brew "spark"
+brew "terraform"
+brew "tmux"
+brew "tmux-cssh"
+brew "unrar"
+brew "vim"
+brew "watchman"
+brew "wget"
+brew "yarn"
+cask "1password"
+cask "atom"
+cask "brave"
+cask "dropbox"
+cask "firefox"
+cask "flux"
+cask "font-inconsolatalgc-nerd-font"
+cask "font-victor-mono"
+cask "google-chrome"
+cask "gpgtools"
+cask "iterm2"
+cask "java"
+cask "jetbrains-toolbox"
+cask "keybase"
+cask "keycastr"
+cask "pycharm"
+cask "screenhero"
+cask "sequel-pro"
+cask "signal"
+cask "slack"
+cask "spotify"
+cask "virtualbox"
+cask "vlc"
+cask "webstorm"
+mas "Amphetamine", id: 937984704
+mas "Frank DeLoupe", id: 530458789
+mas "Magnet", id: 441258766
+mas "Xcode", id: 497799835
