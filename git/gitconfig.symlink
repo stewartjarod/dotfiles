@@ -48,7 +48,7 @@
 	smudge = git-lfs smudge -- %f
 [user]
 	name = Jarod Stewart
-	email = jarod@jarod.is
+	email = stewartjarod@gmail.com
 	signkey = DCE0D85A!
 [gpg]
 	program = gpg
