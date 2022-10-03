@@ -12,4 +12,4 @@ atom.symlink/.atom-socket-secret-*
 
 git/gitconfig.local.symlink
 
-yonomi/*
+suite/*

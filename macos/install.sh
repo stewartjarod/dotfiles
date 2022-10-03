@@ -3,5 +3,8 @@
 # command line interface to it that we can use to just install everything, so
 # yeah, let's do that.
 
+# setup pinentry
+echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
+
 echo "› sudo softwareupdate -i -a"
 sudo softwareupdate -i -a

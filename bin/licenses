@@ -1,0 +1,43 @@
+#!/bin/sh
+
+license_folder=licenses_$(date +'%m-%d-%Y')
+mkdir ~/$license_folder
+cd -P ~/$license_folder
+
+mkdir repos
+cd -P repos
+
+echo "\033[0;33m ====== Cloning Repos ====== \033[0m"
+curl -s https://$GIT_TOKEN:@api.github.com/orgs/yonomi/repos\?per_page\=100 | jq ".[].ssh_url" | xargs -n 1 git clone --recursive
+curl -s https://$GIT_TOKEN:@api.github.com/orgs/yonomi/repos\?per_page\=100\&page\=2 | jq ".[].ssh_url" | xargs -n 1 git clone --recursive
+echo "\r\n\r\n...Cloned $(ls -l | wc -l) Repos"
+
+echo "\033[0;33m ====== Installing Packages and Checking Licenses ====== \033[0m"
+for d in */; do
+    echo "\033[0;33m ====== $d ====== \033[0m"
+    cd -P $d
+    if test -f "package.json"; then
+      npm i
+      if test -f "lerna.json"; then
+        npx lerna exec -- license-checker --onlyunknown --csv --csvComponentPrefix ${d%?} >> ~/$license_folder/unknowns.csv
+        npx lerna exec -- license-checker --csv --csvComponentPrefix ${d%?} >> ~/$license_folder/${d%?}.csv
+      else
+        license-checker --onlyunknown --csv --csvComponentPrefix ${d%?} >> ~/$license_folder/unknowns.csv
+        license-checker --csv --csvComponentPrefix ${d%?} > ~/$license_folder/${d%?}.csv
+      fi
+      sort -u ~/$license_folder/${d%?}.csv -o ~/$license_folder/${d%?}.csv
+    fi
+    cd ..
+done
+
+echo "\033[0;33m ====== Licenses Checked ====== \033[0m"
+cd -P ~
+rm -rf ~/$license_folder/repos
+
+echo "deduping unknowns"
+sort -u ~/$license_folder/unknowns.csv -o ~/$license_folder/unknowns.csv
+
+echo "\033[0;33m ====== Zipping ====== \033[0m"
+tar -cvzf $license_folder.tar.gz $license_folder
+
+echo "\033[0;33m ====== Done ====== \033[0m"
