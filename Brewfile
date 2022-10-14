@@ -1,12 +1,7 @@
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
-<<<<<<< HEAD
-
-=======
->>>>>>> dde603f (cleanup)
 cask "xquartz"
-
 brew "ack"
 brew "awscli"
 brew "bat"
@@ -26,12 +21,10 @@ brew "libgit2"
 brew "libxmlsec1"
 brew "mas"
 brew "nvm"
-brew "pineentry-mac"
+brew "pinentry-mac"
 brew "postgresql", restart_service: true
 brew "ripgrep"
-brew "spaceman-diff"
 brew "spark"
-brew "unrar"
 brew "vim"
 brew "wget"
 cask "visual-studio-code"
@@ -39,17 +32,16 @@ brew "yarn"
 cask "1password"
 cask "dropbox"
 cask "firefox"
+cask "obsidian"
 cask "font-victor-mono"
 cask "google-chrome"
 cask "iterm2"
 cask "jetbrains-toolbox"
+cask "font-jetbrains-mono"
 cask "keycastr"
 cask "signal"
 cask "slack"
 cask "spotify"
-cask "vlc"
 cask "webstorm"
 mas "Amphetamine", id: 937984704
-mas "Frank DeLoupe", id: 530458789
 mas "Magnet", id: 441258766
-mas "Xcode", id: 497799835
