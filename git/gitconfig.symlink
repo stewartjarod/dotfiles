@@ -33,7 +33,8 @@
         default = current
         remote = origin
 [credential]
-	      helper = osxkeychain
+        helper = osxkeychain
+        helper = /usr/local/share/gcm-core/git-credential-manager-core
 [branch]
         autosetuprebase = always
         remote = origin
@@ -46,9 +47,5 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[user]
-	name = Jarod Stewart
-	email = stewartjarod@gmail.com
-	signkey = DCE0D85A!
 [gpg]
 	program = gpg

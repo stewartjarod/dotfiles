@@ -6,5 +6,5 @@
 # setup pinentry
 echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
 
-echo "› sudo softwareupdate -i -a"
-sudo softwareupdate -i -a
+# echo "› sudo softwareupdate -i -a"
+# sudo softwareupdate -i -a
