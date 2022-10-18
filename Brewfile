@@ -48,5 +48,6 @@ cask "signal"
 cask "slack"
 cask "spotify"
 cask "webstorm"
+cask "zoom"
 mas "Amphetamine", id: 937984704
 mas "Magnet", id: 441258766
