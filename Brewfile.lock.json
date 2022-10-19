@@ -1453,6 +1453,12 @@
         "options": {
           "full_name": "zoom"
         }
+      },
+      "pop": {
+        "version": "8.0.13",
+        "options": {
+          "full_name": "pop"
+        }
       }
     },
     "mas": {
