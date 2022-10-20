@@ -38,6 +38,7 @@ cask "1password"
 cask "dropbox"
 
 cask "obsidian"
+cask "google-drive"
 cask "font-victor-mono"
 cask "google-chrome"
 cask "iterm2"
