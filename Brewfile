@@ -32,11 +32,9 @@ brew "wget"
 brew "yarn"
 cask "xquartz"
 cask "docker"
-cask "git-credential-manager-core"
 cask "visual-studio-code"
 cask "1password"
 cask "dropbox"
-
 cask "obsidian"
 cask "google-drive"
 cask "font-victor-mono"
@@ -52,3 +50,4 @@ cask "spotify"
 cask "zoom"
 mas "Amphetamine", id: 937984704
 mas "Magnet", id: 441258766
+mas "GIPHY Capture. The GIF Maker", id: 668208984
