@@ -1,1 +1,1 @@
-export EDITOR='fleet'
+export EDITOR='idea'
