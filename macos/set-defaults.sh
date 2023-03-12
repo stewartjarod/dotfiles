@@ -16,13 +16,13 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General Defaults                                                            #
 ###############################################################################
 # Add date next to clock
-defaults write com.apple.menuextra.clock "DateFormat" "EEE MMM d h:mm a"
+defaults write com.apple.menuextra.clock "DateFormat" "EEE MMM d H:mm a"
 
 # Disable press-and-hold for keys in favor of key repeat.
 defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Use AirDrop over every interface. srsly this should be a default.
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
+#defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
 # Always open everything in Finder's list view. This is important.
 defaults write com.apple.Finder FXPreferredViewStyle Nlsv
@@ -131,7 +131,6 @@ for app in "Activity Monitor" \
 	"Finder" \
 	"Messages" \
 	"Photos" \
-	"Safari" \
 	"SizeUp" \
 	"Spectacle" \
 	"SystemUIServer" \
