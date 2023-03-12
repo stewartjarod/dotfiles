@@ -52,3 +52,4 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 eval "$(starship init zsh)"
+starship preset pastel-powerline > ~/.config/starship.toml

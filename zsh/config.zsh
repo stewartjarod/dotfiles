@@ -1,4 +1,3 @@
-export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
 fpath=($ZSH/functions $fpath)

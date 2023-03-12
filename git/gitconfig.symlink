@@ -15,7 +15,7 @@
         branch = auto
         ui = true
 [core]
-	      excludesfile = /Users/jarod/.gitexcludes
+	    excludesfile = /Users/jarod/.gitexcludes
         editor = vi
 [apply]
         whitespace = nowarn

@@ -276,4 +276,5 @@ build_prompt() {
   prompt_end
 }
 
-PROMPT='%{%f%b%k%}$(build_prompt) '
+# Disable this prompt
+#PROMPT='%{%f%b%k%}$(build_prompt) '

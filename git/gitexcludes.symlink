@@ -1,6 +1,5 @@
 .DS_Store
 .idea
-.thincloud.json
 .vscode/*
 */dockerWatch.sh
 */mongoDevImport.sh
