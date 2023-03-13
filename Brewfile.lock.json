@@ -1345,6 +1345,12 @@
         "options": {
           "full_name": "pop"
         }
+      },
+      "fig": {
+        "version": "2.14.2",
+        "options": {
+          "full_name": "fig"
+        }
       }
     },
     "mas": {

@@ -3,8 +3,6 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "homebrew/cask-fonts"
 tap "microsoft/git"
-brew "canfigger"
-#brew "fig"
 brew "exa"
 brew "bat"
 brew "ripgrep"
@@ -50,6 +48,7 @@ cask "slack"
 cask "spotify"
 cask "zoom"
 cask "pop"
+cask "fig"
 mas "Amphetamine", id: 937984704
 mas "Magnet", id: 441258766
 mas "GIPHY Capture. The GIF Maker", id: 668208984
