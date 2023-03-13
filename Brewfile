@@ -49,6 +49,7 @@ cask "signal"
 cask "slack"
 cask "spotify"
 cask "zoom"
+cask "pop"
 mas "Amphetamine", id: 937984704
 mas "Magnet", id: 441258766
 mas "GIPHY Capture. The GIF Maker", id: 668208984
