@@ -46,12 +46,14 @@ cask "jetbrains-toolbox"
 cask "font-jetbrains-mono"
 cask "keycastr"
 cask "raycast"
+cask "notion"
 cask "signal"
 cask "slack"
 cask "spotify"
 cask "zoom"
 cask "pop"
 cask "fig"
+cask "discord"
 mas "Amphetamine", id: 937984704
 mas "Magnet", id: 441258766
 mas "GIPHY Capture. The GIF Maker", id: 668208984
