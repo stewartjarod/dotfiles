@@ -85,27 +85,12 @@ symbol = " "
 style = "bg:green"
 format = '[ $symbol ($version) ]($style)'
 
-[elixir]
-symbol = " "
-style = "bg:green"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:green"
-format = '[ $symbol ($version) ]($style)'
-
 [golang]
 symbol = " "
 style = "bg:green"
 format = '[ $symbol ($version) ]($style)'
 
 [gradle]
-style = "bg:green"
-format = '[ $symbol ($version) ]($style)'
-
-[haskell]
-symbol = " "
 style = "bg:green"
 format = '[ $symbol ($version) ]($style)'
 
@@ -131,11 +116,6 @@ format = '[ $symbol ($version) ]($style)'
 
 [rust]
 symbol = ""
-style = "bg:green"
-format = '[ $symbol ($version) ]($style)'
-
-[scala]
-symbol = " "
 style = "bg:green"
 format = '[ $symbol ($version) ]($style)'
 
