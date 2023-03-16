@@ -7,8 +7,8 @@ then
 fi
 
 # The rest of my fun git aliases
-alias gl='git pull --prune'
-alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias gprune='git pull --prune'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 function gcb() {
   echo $(git branch | grep -E '^\* ' | sed 's/^\* //g')
@@ -20,6 +20,11 @@ function gpull() {
 alias gpl='git pull --rebase'
 alias gp='git push'
 
+alias current_branch="echo $(git branch | grep -E '^\* ' | sed 's/^\* //g')"
+alias gcb='current_branch | pbcopy'
+alias gpull="git pull --rebase origin $current_branch"
+alias gpush='git push origin HEAD'
+
 # Remove `+` and `-` from start of diff lines; just rely upon color.
 alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
 
@@ -27,12 +32,11 @@ alias gc='git commit -am'
 alias gcam='git commit -a --amend'
 alias gad='git add . && git commit -am'
 alias gco='git checkout'
-alias grbm='git fetch --all & git rebase origin/master --no-ff'
+alias grbm='git fetch --all & git rebase origin/main --no-ff'
 
-alias gdelorigin="git branch -r --merged | grep -v master | sed 's/origin\//:/' | xargs -n 1 git push origin"
-alias gdelete="git for-each-ref --format '%(refname:short)' refs/heads | grep -v master | xargs git branch -D"
+alias gdelorigin="git branch -r --merged | grep -v main | sed 's/origin\//:/' | xargs -n 1 git push origin"
+alias gdelete="git for-each-ref --format '%(refname:short)' refs/heads | grep -v main | xargs git branch -D"
 
-alias gcb='git copy-branch-name'
 alias gb='git branch'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 
