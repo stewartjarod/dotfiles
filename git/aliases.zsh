@@ -9,21 +9,22 @@ fi
 # The rest of my fun git aliases
 alias gprune='git pull --prune'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
-#function gcb() {
-#  echo $(git branch | grep -E '^\* ' | sed 's/^\* //g')
-#}
-#function gpull() {
-#  git pull --rebase origin $(gcb)
-#}
+function gcb() {
+  echo $(git branch | grep -E '^\* ' | sed 's/^\* //g')
+}
+function gpull() {
+  git pull --rebase origin $(gcb)
+}
 
 
 alias gpl='git pull --rebase'
 alias gp='git push'
 
-alias current_branch="echo $(git branch | grep -E '^\* ' | sed 's/^\* //g')"
-alias gcb='current_branch | pbcopy'
-alias gpull="git pull --rebase origin $current_branch"
+#alias current_branch="echo $(git branch | grep -E '^\* ' | sed 's/^\* //g')"
+#alias gcb='current_branch | pbcopy'
+#alias gpull="git pull --rebase origin $current_branch"
 alias gpush='git push origin HEAD'
 
 # Remove `+` and `-` from start of diff lines; just rely upon color.
