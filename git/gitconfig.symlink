@@ -42,10 +42,6 @@
         autosetuprebase = never
         remote = origin
         merge = refs/heads/main
-[branch "master"]
-        autosetuprebase = never
-        remote = origin
-        merge = refs/heads/master
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
