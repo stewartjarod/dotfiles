@@ -10,12 +10,13 @@ fi
 alias gprune='git pull --prune'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
-function gcb() {
-  echo $(git branch | grep -E '^\* ' | sed 's/^\* //g')
-}
-function gpull() {
-  git pull --rebase origin $(gcb)
-}
+#function gcb() {
+#  echo $(git branch | grep -E '^\* ' | sed 's/^\* //g')
+#}
+#function gpull() {
+#  git pull --rebase origin $(gcb)
+#}
+
 
 alias gpl='git pull --rebase'
 alias gp='git push'
