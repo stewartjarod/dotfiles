@@ -16,7 +16,7 @@
         ui = true
 [core]
 	    excludesfile = /Users/jarod/.gitexcludes
-        editor = vi
+        editor = nvim
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -52,3 +52,5 @@
 	defaultBranch = main
 [commit]
 	gpgsign = true
+[pull]
+	rebase = true
