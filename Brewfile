@@ -1,5 +1,3 @@
-tap "homebrew/cask"
-tap "homebrew/core"
 tap "homebrew/services"
 tap "homebrew/cask-fonts"
 tap "microsoft/git"
@@ -56,6 +54,7 @@ cask "fig"
 cask "discord"
 cask "vpn-by-google-one"
 cask "tradingview"
+cask "raycast"
 mas "Amphetamine", id: 937984704
 mas "Magnet", id: 441258766
 mas "GIPHY Capture. The GIF Maker", id: 668208984
