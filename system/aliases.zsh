@@ -1,9 +1,9 @@
 if $(gls &>/dev/null)
 then
-  alias ls="exa"
-  alias l="exa -lAh"
-  alias ll="exa -lh"
-  alias la='exa -A'
+  alias ls="eza"
+  alias l="eza -lAh"
+  alias ll="eza -lh"
+  alias la='eza -A'
 fi
 
 alias vim="vi"

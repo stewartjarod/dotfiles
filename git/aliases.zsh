@@ -114,3 +114,25 @@ function tag() {
     echo "››› Must pass tag"
   fi
 }
+
+alias gstandup='git log \
+  --since="$(TZ="America/Denver" date -v-1d -v0H -v0M -v0S "+%Y-%m-%dT%H:%M:%S%z")" \
+  --until="$(TZ="America/Denver" date -v0H -v0M -v0S "+%Y-%m-%dT%H:%M:%S%z")" \
+  --all \
+  --no-merges \
+  --oneline \
+  --author="$(git config user.email)"'
+
+alias gstandup_full='
+  echo "Git Activity for Yesterday (Mountain Time):"
+  echo "-------------------------------------------"
+  git log \
+    --since="$(TZ="America/Denver" date -v-1d -v0H -v0M -v0S "+%Y-%m-%dT%H:%M:%S%z")" \
+    --until="$(TZ="America/Denver" date -v0H -v0M -v0S "+%Y-%m-%dT%H:%M:%S%z")" \
+    --all \
+    --no-merges \
+    --pretty=format:"%C(yellow)%h %C(cyan)%ad %C(bold blue)%an%n%C(reset)  %s%n" \
+    --date=local \
+    --name-only | awk '\''NF {print}'\'' | sed "/^$/d"
+  echo "-------------------------------------------"
+'

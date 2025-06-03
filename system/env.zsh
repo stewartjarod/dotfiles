@@ -1,1 +1,1 @@
-export EDITOR='idea'
+export EDITOR='cursor'

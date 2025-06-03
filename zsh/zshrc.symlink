@@ -59,3 +59,9 @@ cp ~/.dotfiles/starship/config.toml ~/.config/starship.toml
 export PYENV_ROOT="$HOME/.pyenv"
 # sst
 export PATH=/Users/jarod/.sst/bin:$PATH
+
+# bun completions
+[ -s "/Users/jarod/.bun/_bun" ] && source "/Users/jarod/.bun/_bun"
+
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"

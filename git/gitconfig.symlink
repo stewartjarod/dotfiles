@@ -6,7 +6,6 @@
 [alias]
         co = checkout
         promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
 [color]
@@ -15,8 +14,9 @@
         branch = auto
         ui = true
 [core]
-	    excludesfile = /Users/jarod/.gitexcludes
+	excludesfile = /Users/jarod/.gitexcludes
         editor = nvim
+        pager = delta
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -48,9 +48,25 @@
 	smudge = git-lfs smudge -- %f
 [gpg]
 	program = gpg
+	format = openpgp
 [init]
 	defaultBranch = main
 [commit]
 	gpgsign = true
 [pull]
 	rebase = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    side-by-side = true
+[rerere]
+    enabled = true
+[user]
+	signingkey = B0FC5A0774EE3A5E
+[tag]
+	gpgSign = true

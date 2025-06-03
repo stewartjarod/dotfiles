@@ -1,39 +1,41 @@
-tap "homebrew/services"
-tap "homebrew/cask-fonts"
 tap "microsoft/git"
-brew "exa"
-brew "bat"
-brew "ripgrep"
+
+brew "zoxide" # cd replacement
+brew "eza" # ls replacement
+brew "fzf" # fuzzy finder
+brew "bat" # cat replacement
+brew "ripgrep" # grep replacement
 brew "starship"
-brew "dust"
-brew "procs"
-brew "fd"
-brew "ack"
+brew "dust" # disk usage
+brew "procs" # ps replacement
+brew "fd" # find replacement
+brew "ack" # grep replacement
 brew "awscli"
-brew "coreutils"
+brew "coreutils" # gnu core utilities
 brew "git"
 brew "go"
-brew "grc"
+brew "grc" # colorize commands
 brew "gpg"
-brew "htop"
-brew "httpie"
-brew "imagemagick"
-brew "jp2a"
-brew "jq"
+brew "htop" # htop
+brew "bottom" # htop replacement
+brew "httpie" # curl replacement
+brew "imagemagick" # image processing
+brew "jp2a" # ascii art from images
+brew "jq" # json processor
 brew "libgit2"
 brew "libxmlsec1"
-brew "mas"
-brew "nvm"
-brew "pinentry-mac"
+brew "mas" # mac app store cli
+brew "nvm" # node version manager
+brew "pinentry-mac" # pinentry for gpg
 brew "spark"
-brew "vim"
-brew "wget"
-brew "pnpm"
-brew "neovim"
+brew "vim" # vi replacement
+brew "wget" # wget
+brew "pnpm" # npm replacement
+brew "neovim" # vim replacement
 brew "yarn"
 brew "mysql"
+brew "git-delta" # git delta
 cask "visual-studio-code"
-cask "alacritty"
 cask "1password"
 cask "obsidian"
 cask "google-drive"
@@ -50,12 +52,10 @@ cask "slack"
 cask "spotify"
 cask "zoom"
 cask "pop"
-cask "fig"
 cask "discord"
-cask "vpn-by-google-one"
 cask "tradingview"
 cask "raycast"
 cask "warp"
+cask "ghostty" # New Terminal
 mas "Amphetamine", id: 937984704
 mas "Magnet", id: 441258766
-mas "GIPHY Capture. The GIF Maker", id: 668208984
