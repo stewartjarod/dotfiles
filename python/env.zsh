@@ -1,8 +1,15 @@
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-#alias python = "python3"
 
+# Lazy-load pyenv — only initialize when first calling pyenv or python
+lazy_load_pyenv() {
+  unset -f pyenv python python3
+  eval "$(pyenv init -)"
+}
+
+pyenv() { lazy_load_pyenv; pyenv "$@"; }
+python() { lazy_load_pyenv; python "$@"; }
+python3() { lazy_load_pyenv; python3 "$@"; }
 
 #!/usr/bin/env zsh
 ZSH_POETRY_AUTO_ACTIVATE=${ZSH_POETRY_AUTO_ACTIVATE:-1}
