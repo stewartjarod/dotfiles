@@ -1,5 +1,7 @@
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+alias brew='env PATH="${PATH//$PYENV_ROOT\/shims:/}" brew'
+export POETRY_VIRTUALENVS_IN_PROJECT=true
 
 # Lazy-load pyenv — only initialize when first calling pyenv or python
 lazy_load_pyenv() {

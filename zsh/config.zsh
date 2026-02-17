@@ -23,7 +23,6 @@ setopt IGNORE_EOF
 unsetopt menu_complete   # do not autoselect the first completion entry
 unsetopt flowcontrol
 setopt auto_menu         # show completion menu on succesive tab press
-setopt complete_in_word
 setopt always_to_end
 
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
@@ -45,3 +44,4 @@ bindkey '^?' backward-delete-char
 if [[ -z "$ZSH_CACHE_DIR" ]]; then
   ZSH_CACHE_DIR="$ZSH/cache"
 fi
+[[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
