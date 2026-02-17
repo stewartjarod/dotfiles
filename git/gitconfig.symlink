@@ -28,12 +28,10 @@
         #
         # Setting to git 2.0 default to suppress warning message
         default = current
-        remote = origin
 [credential]
         helper = osxkeychain
 [branch]
         autosetuprebase = always
-        remote = origin
 [branch "main"]
         autosetuprebase = never
         remote = origin
@@ -63,7 +61,5 @@
     side-by-side = true
 [rerere]
     enabled = true
-[user]
-	signingkey = B0FC5A0774EE3A5E
 [tag]
 	gpgSign = true

@@ -2,7 +2,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Lazy-load nvm — only initialize when first calling nvm, node, npm, npx, or pnpm
 lazy_load_nvm() {
-  unset -f nvm node npm npx pnpm
+  unset -f nvm node npm npx
   . /opt/homebrew/opt/nvm/nvm.sh
 
   autoload -U add-zsh-hook
@@ -29,4 +29,3 @@ nvm() { lazy_load_nvm; nvm "$@"; }
 node() { lazy_load_nvm; node "$@"; }
 npm() { lazy_load_nvm; npm "$@"; }
 npx() { lazy_load_nvm; npx "$@"; }
-pnpm() { lazy_load_nvm; pnpm "$@"; }

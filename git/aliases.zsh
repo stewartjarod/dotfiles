@@ -38,9 +38,9 @@ alias gc='git commit -am'
 alias gcam='git commit -a --amend'
 alias gad='git add . && git commit -am'
 alias gco='git checkout'
-alias grbm='git fetch --all && git rebase origin/main --no-ff'
+alias grbm='git fetch --all && git rebase origin/main --force-rebase'
 
-alias gdelorigin="git branch -r --merged | grep -v main | sed 's/origin\//:/' | xargs -n 1 git push origin"
+alias gdelorigin="git branch -r --merged | grep -v main | sed 's/^ *origin\///' | xargs -n 1 git push origin --delete"
 alias gdelete="git for-each-ref --format '%(refname:short)' refs/heads | grep -v main | xargs git branch -D"
 
 alias gb='git branch'
