@@ -82,7 +82,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 
 # JDK 17 for Android builds
-export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/jdk-17.0.13+11/Contents/Home
+export JAVA_HOME=$(/usr/libexec/java_home -v 17 2>/dev/null)
 
 
 [[ -f "$HOME/.config/kaku/zsh/kaku.zsh" ]] && source "$HOME/.config/kaku/zsh/kaku.zsh" # Kaku Shell Integration

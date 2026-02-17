@@ -11,7 +11,6 @@ pyenv() { lazy_load_pyenv; pyenv "$@"; }
 python() { lazy_load_pyenv; python "$@"; }
 python3() { lazy_load_pyenv; python3 "$@"; }
 
-#!/usr/bin/env zsh
 ZSH_POETRY_AUTO_ACTIVATE=${ZSH_POETRY_AUTO_ACTIVATE:-1}
 ZSH_POETRY_AUTO_DEACTIVATE=${ZSH_POETRY_AUTO_DEACTIVATE:-1}
 ZSH_POETRY_OVERRIDE_SHELL=${ZSH_POETRY_OVERRIDE_SHELL:-1}

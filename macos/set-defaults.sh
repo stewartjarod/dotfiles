@@ -53,7 +53,7 @@ defaults write com.apple.dock wvous-br-modifier -int 0
 # defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 # Set DNS Server
-networksetup -setdnsservers Wi-Fi 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4
+networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 8.8.8.8 8.8.4.4
 
 # Disable the “Are you sure you want to open this application?” dialog
 # defaults write com.apple.LaunchServices LSQuarantine -bool false
@@ -131,8 +131,6 @@ for app in "Activity Monitor" \
 	"Finder" \
 	"Messages" \
 	"Photos" \
-	"SizeUp" \
-	"Spectacle" \
 	"SystemUIServer" \
 	"Terminal"; do
 	killall "${app}" &> /dev/null
