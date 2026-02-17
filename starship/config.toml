@@ -71,7 +71,6 @@ ahead = '⇡${count} '
 diverged = '⇕⇡${ahead_count} ⇣${behind_count} '
 behind = '⇣${count} '
 conflicted = '≠${count} '
-#stashed = '⚑${count} '
 renamed = '»${count} '
 deleted = '✘${count} '
 untracked = '…${count} '
@@ -89,10 +88,6 @@ untracked = '…${count} '
 # will not be replaced, because "Documents" was already substituted before.
 # So either put "Important Documents" before "Documents" or use the substituted version:
 # "Important  " = "  "
-[docker_context]
-symbol = " "
-style = "bg:maroon"
-format = '[ $symbol $context ]($style) $path'
 
 [c]
 symbol = " "
@@ -106,11 +101,6 @@ format = '[ $symbol ($version) ]($style)'
 
 [python]
 symbol = ""
-style = "bg:green"
-format = '[ $symbol ($version) ]($style)'
-
-[lua]
-symbol = ""
 style = "bg:green"
 format = '[ $symbol ($version) ]($style)'
 
@@ -139,12 +129,6 @@ format = '[ $symbol ($profile) ]($style)'
 style = 'bg:maroon'
 symbol = ''
 force_display = true
-
-[time]
-disabled = true
-time_format = "%R" # Hour:Minute Format
-style = "bg:flamingo"
-format = '[ ♥ $time ]($style)'
 
 [os.symbols]
 Macos = " "
