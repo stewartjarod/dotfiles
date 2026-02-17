@@ -51,7 +51,7 @@ alias gc='git commit -am'
 alias gcam='git commit -a --amend'
 alias gad='git add . && git commit -am'
 alias gco='git checkout'
-alias grbm='git fetch --all & git rebase origin/main --no-ff'
+alias grbm='git fetch --all && git rebase origin/main --no-ff'
 
 alias gdelorigin="git branch -r --merged | grep -v main | sed 's/origin\//:/' | xargs -n 1 git push origin"
 alias gdelete="git for-each-ref --format '%(refname:short)' refs/heads | grep -v main | xargs git branch -D"
@@ -60,7 +60,7 @@ alias gb='git branch'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 
 function gtag() {
-  if [ -n $1 ]
+  if [ -n "$1" ]
   then
     echo "› Creating tag: v$1"
     if git tag -a "v$1" -m "v$1" >/dev/null
@@ -78,7 +78,7 @@ function gtag() {
 
 
 function tag() {
-  if [ -n $1 ]
+  if [ -n "$1" ]
   then
     git fetch --all --tags
     current_tag="$(git describe --abbrev=0 --tags)"
@@ -135,4 +135,18 @@ alias gstandup_full='
     --date=local \
     --name-only | awk '\''NF {print}'\'' | sed "/^$/d"
   echo "-------------------------------------------"
+'
+
+alias gitlog_today_full='
+  echo "Git Activity for Today (Mountain Time):"
+  echo "----------------------------------------"
+  git log \
+    --since="$(TZ="America/Denver" date -v0H -v0M -v0S "+%Y-%m-%dT%H:%M:%S%z")" \
+    --until="$(TZ="America/Denver" date -v+1d -v0H -v0M -v0S "+%Y-%m-%dT%H:%M:%S%z")" \
+    --all \
+    --no-merges \
+    --pretty=format:"%C(yellow)%h %C(cyan)%ad %C(bold blue)%an%n%C(reset)  %s%n" \
+    --date=local \
+    --name-only | awk '\''NF {print}'\'' | sed "/^$/d"
+  echo "----------------------------------------"
 '

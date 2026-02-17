@@ -26,9 +26,7 @@ $rust\
 $scala\
 [](fg:green bg:maroon)\
 $aws\
-[](fg:maroon bg:flamingo)\
-$time\
-[ ](fg:flamingo)\
+[](fg:maroon)\
 """
 
 # Disable the blank line at the start of the prompt
@@ -114,7 +112,7 @@ format = '[ $symbol ($version) ]($style)'
 [lua]
 symbol = ""
 style = "bg:green"
-format = '[$symbol ($version)]($style)]'
+format = '[ $symbol ($version) ]($style)'
 
 [julia]
 symbol = " "
@@ -137,13 +135,13 @@ style = "bg:green"
 format = '[ $symbol ($version) ]($style)'
 
 [aws]
-format = '[$symbol($profile )(\($region\) )]($style)'
-style = 'bold blue'
-symbol = ' '
+format = '[ $symbol ($profile) ]($style)'
+style = 'bg:maroon'
+symbol = ''
 force_display = true
 
 [time]
-disabled = false
+disabled = true
 time_format = "%R" # Hour:Minute Format
 style = "bg:flamingo"
 format = '[ ♥ $time ]($style)'
