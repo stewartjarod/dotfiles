@@ -65,3 +65,26 @@ export PATH=/Users/jarod/.sst/bin:$PATH
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# opencode
+export PATH=/Users/jarod/.opencode/bin:$PATH
+
+# Added by Antigravity
+export PATH="/Users/jarod/.antigravity/antigravity/bin:$PATH"
+
+# Android SDK
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+
+# Java (Android Studio bundled JDK)
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+
+# JDK 17 for Android builds
+export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/jdk-17.0.13+11/Contents/Home
+
+
+[[ -f "$HOME/.config/kaku/zsh/kaku.zsh" ]] && source "$HOME/.config/kaku/zsh/kaku.zsh" # Kaku Shell Integration
