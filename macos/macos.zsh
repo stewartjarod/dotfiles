@@ -5,38 +5,6 @@ alias ofd='open $PWD'
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
-function _omz_osx_get_frontmost_app() {
-  local the_app=$(
-    osascript 2>/dev/null <<EOF
-      tell application "System Events"
-        name of first item of (every process whose frontmost is true)
-      end tell
-EOF
-  )
-  echo "$the_app"
-}
-
-function tab() {
-  local command="cd \\\"$PWD\\\"; clear"
-  (( $# > 0 )) && command="${command}; $*"
-
-  local the_app=$(_omz_osx_get_frontmost_app)
-
-  if [[ "$the_app" == 'Terminal' ]]; then
-    osascript >/dev/null <<EOF
-      tell application "System Events"
-        tell process "Terminal" to keystroke "t" using command down
-      end tell
-      tell application "Terminal" to do script "${command}" in front window
-EOF
-
-  else
-    echo "tab: unsupported terminal app: $the_app"
-    false
-
-  fi
-}
-
 function pfd() {
   osascript 2>/dev/null <<EOF
     tell application "Finder"

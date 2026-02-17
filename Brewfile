@@ -11,7 +11,6 @@ brew "awscli"
 brew "coreutils" # gnu core utilities
 brew "git"
 brew "go"
-brew "grc" # colorize commands
 brew "gpg"
 brew "bottom" # htop replacement
 brew "httpie" # curl replacement
