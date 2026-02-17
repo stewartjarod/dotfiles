@@ -21,6 +21,7 @@ brew "jq" # json processor
 brew "libgit2"
 brew "mas" # mac app store cli
 brew "nvm" # node version manager
+brew "pyenv" # python version manager
 brew "pinentry-mac" # pinentry for gpg
 brew "wget" # wget
 brew "pnpm" # npm replacement
@@ -33,7 +34,6 @@ cask "google-drive"
 cask "firefox"
 cask "font-victor-mono"
 cask "google-chrome"
-cask "iterm2"
 cask "jetbrains-toolbox"
 cask "font-jetbrains-mono"
 cask "keycastr"
