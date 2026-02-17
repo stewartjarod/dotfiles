@@ -1,5 +1,5 @@
 # Open the current directory in a Finder window
-alias ofd='open_command $PWD'
+alias ofd='open $PWD'
 
 # Show/hide hidden files in the Finder
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"

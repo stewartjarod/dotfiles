@@ -1,11 +1,8 @@
 # Local/private config goes in the include
 [include]
         path = ~/.gitconfig.local
-[hub]
-        protocol = https
 [alias]
         co = checkout
-        promote = !$ZSH/bin/git-promote
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
 [color]
@@ -14,7 +11,7 @@
         branch = auto
         ui = true
 [core]
-	excludesfile = /Users/jarod/.gitexcludes
+	excludesfile = ~/.gitexcludes
         editor = nvim
         pager = delta
 [apply]
