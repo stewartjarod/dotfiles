@@ -5,8 +5,8 @@ fpath=($ZSH/functions $fpath)
 autoload -U $ZSH/functions/*(:t)
 
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=50000
+SAVEHIST=50000
 
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
@@ -18,7 +18,6 @@ setopt SHARE_HISTORY # share history between sessions ???
 setopt EXTENDED_HISTORY # add timestamps to history
 setopt PROMPT_SUBST
 setopt CORRECT
-setopt CORRECT_ALL
 setopt COMPLETE_IN_WORD
 setopt IGNORE_EOF
 unsetopt menu_complete   # do not autoselect the first completion entry

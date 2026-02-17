@@ -1,5 +1,5 @@
 # alias npx='nocorrect npx'
-alias sst='nocorrect npx sst'
+alias sst='npx sst'
 
 if (( $+commands[eza] ))
 then
