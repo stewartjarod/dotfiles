@@ -56,7 +56,6 @@ export PATH="$PNPM_HOME:$PATH"
 eval "$(starship init zsh)"
 cp ~/.dotfiles/starship/config.toml ~/.config/starship.toml
 
-export PYENV_ROOT="$HOME/.pyenv"
 # sst
 export PATH=/Users/jarod/.sst/bin:$PATH
 

@@ -1,7 +1,7 @@
 # alias npx='nocorrect npx'
 alias sst='nocorrect npx sst'
 
-if $(gls &>/dev/null)
+if (( $+commands[eza] ))
 then
   alias ls="eza"
   alias l="eza -lAh"
@@ -9,7 +9,7 @@ then
   alias la='eza -A'
 fi
 
-alias vim="vi"
+alias vim="nvim"
 alias sso="aws sso login --sso-session=stewartjarod"
 
 # Pick AWS profile with fzf and login
