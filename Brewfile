@@ -26,6 +26,7 @@ brew "wget" # wget
 brew "pnpm" # npm replacement
 brew "neovim" # vim replacement
 brew "git-delta" # git delta
+brew "duti" # set default apps per file type
 cask "visual-studio-code"
 cask "1password"
 cask "obsidian"
