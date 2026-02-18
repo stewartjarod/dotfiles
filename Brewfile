@@ -19,8 +19,11 @@ brew "jp2a" # ascii art from images
 brew "jq" # json processor
 brew "libgit2"
 brew "mas" # mac app store cli
-brew "nvm" # node version manager
-brew "pyenv" # python version manager
+brew "mise" # runtime version manager (replaces nvm + pyenv)
+brew "atuin" # shell history replacement
+brew "zsh-autosuggestions" # fish-like ghost text suggestions
+brew "zsh-fast-syntax-highlighting" # real-time command colorization
+brew "fzf-tab" # fzf-powered tab completion
 brew "pinentry-mac" # pinentry for gpg
 brew "wget" # wget
 brew "pnpm" # npm replacement

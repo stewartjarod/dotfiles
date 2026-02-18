@@ -34,3 +34,6 @@ zstyle ":completion:*:make" rehash 1
 
 # Make zsh know about hosts already accessed by SSH
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat ~/.ssh/known_hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+
+# fzf-powered tab completion (must load after compinit)
+source /opt/homebrew/share/fzf-tab/fzf-tab.zsh

@@ -1,17 +1,4 @@
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-alias brew='env PATH="${PATH//$PYENV_ROOT\/shims:/}" brew'
 export POETRY_VIRTUALENVS_IN_PROJECT=true
-
-# Lazy-load pyenv — only initialize when first calling pyenv or python
-lazy_load_pyenv() {
-  unset -f pyenv python python3
-  eval "$(pyenv init -)"
-}
-
-pyenv() { lazy_load_pyenv; pyenv "$@"; }
-python() { lazy_load_pyenv; python "$@"; }
-python3() { lazy_load_pyenv; python3 "$@"; }
 
 ZSH_POETRY_AUTO_ACTIVATE=${ZSH_POETRY_AUTO_ACTIVATE:-1}
 ZSH_POETRY_AUTO_DEACTIVATE=${ZSH_POETRY_AUTO_DEACTIVATE:-1}
