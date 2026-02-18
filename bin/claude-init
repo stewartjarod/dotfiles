@@ -1,0 +1,365 @@
+#!/bin/sh
+#
+# claude-init
+#
+# Scaffolds a CLAUDE.md and .claude/ directory for the current project.
+# Auto-detects the tech stack and generates a useful starting point.
+#
+# USAGE:
+#
+#   $ claude-init
+#   # => creates CLAUDE.md and .claude/ in the current directory
+#
+set -e
+
+# -- helpers ------------------------------------------------------------------
+
+die() { echo "error: $*" >&2; exit 1; }
+
+detect_stack() {
+  if [ -f package.json ]; then
+    STACK="node"
+    PKG_MGR="npm"
+    [ -f bun.lockb ] && PKG_MGR="bun"
+    [ -f pnpm-lock.yaml ] && PKG_MGR="pnpm"
+    [ -f yarn.lock ] && PKG_MGR="yarn"
+
+    # Detect frameworks from package.json (works without jq)
+    FRAMEWORKS=""
+    if grep -q '"next"' package.json 2>/dev/null; then
+      FRAMEWORKS="$FRAMEWORKS Next.js,"
+    fi
+    if grep -q '"react"' package.json 2>/dev/null; then
+      FRAMEWORKS="$FRAMEWORKS React,"
+    fi
+    if grep -q '"vue"' package.json 2>/dev/null; then
+      FRAMEWORKS="$FRAMEWORKS Vue,"
+    fi
+    if grep -q '"svelte"' package.json 2>/dev/null; then
+      FRAMEWORKS="$FRAMEWORKS Svelte,"
+    fi
+    if grep -q '"express"' package.json 2>/dev/null; then
+      FRAMEWORKS="$FRAMEWORKS Express,"
+    fi
+    if grep -q '"hono"' package.json 2>/dev/null; then
+      FRAMEWORKS="$FRAMEWORKS Hono,"
+    fi
+    if grep -q '"typescript"' package.json 2>/dev/null; then
+      FRAMEWORKS="$FRAMEWORKS TypeScript,"
+    fi
+    if grep -q '"tailwindcss"' package.json 2>/dev/null; then
+      FRAMEWORKS="$FRAMEWORKS Tailwind CSS,"
+    fi
+    # Trim trailing comma
+    FRAMEWORKS=$(echo "$FRAMEWORKS" | sed 's/,$//' | sed 's/^ //')
+  elif [ -f pyproject.toml ] || [ -f requirements.txt ]; then
+    STACK="python"
+    PKG_MGR="pip"
+    [ -f pyproject.toml ] && grep -q "poetry" pyproject.toml 2>/dev/null && PKG_MGR="poetry"
+    [ -f pyproject.toml ] && grep -q "hatch" pyproject.toml 2>/dev/null && PKG_MGR="hatch"
+    [ -f uv.lock ] && PKG_MGR="uv"
+    FRAMEWORKS=""
+    for f in pyproject.toml requirements.txt; do
+      [ -f "$f" ] || continue
+      grep -q "django" "$f" 2>/dev/null && FRAMEWORKS="$FRAMEWORKS Django,"
+      grep -q "fastapi" "$f" 2>/dev/null && FRAMEWORKS="$FRAMEWORKS FastAPI,"
+      grep -q "flask" "$f" 2>/dev/null && FRAMEWORKS="$FRAMEWORKS Flask,"
+    done
+    FRAMEWORKS=$(echo "$FRAMEWORKS" | sed 's/,$//' | sed 's/^ //')
+  elif [ -f Cargo.toml ]; then
+    STACK="rust"
+    PKG_MGR="cargo"
+    FRAMEWORKS=""
+    grep -q "actix" Cargo.toml 2>/dev/null && FRAMEWORKS="$FRAMEWORKS Actix,"
+    grep -q "axum" Cargo.toml 2>/dev/null && FRAMEWORKS="$FRAMEWORKS Axum,"
+    grep -q "tokio" Cargo.toml 2>/dev/null && FRAMEWORKS="$FRAMEWORKS Tokio,"
+    FRAMEWORKS=$(echo "$FRAMEWORKS" | sed 's/,$//' | sed 's/^ //')
+  elif [ -f go.mod ]; then
+    STACK="go"
+    PKG_MGR="go"
+    FRAMEWORKS=""
+    grep -q "gin-gonic" go.mod 2>/dev/null && FRAMEWORKS="$FRAMEWORKS Gin,"
+    grep -q "gofiber" go.mod 2>/dev/null && FRAMEWORKS="$FRAMEWORKS Fiber,"
+    grep -q "echo" go.mod 2>/dev/null && FRAMEWORKS="$FRAMEWORKS Echo,"
+    FRAMEWORKS=$(echo "$FRAMEWORKS" | sed 's/,$//' | sed 's/^ //')
+  elif [ -f Gemfile ]; then
+    STACK="ruby"
+    PKG_MGR="bundle"
+    FRAMEWORKS=""
+    grep -q "rails" Gemfile 2>/dev/null && FRAMEWORKS="$FRAMEWORKS Rails,"
+    grep -q "sinatra" Gemfile 2>/dev/null && FRAMEWORKS="$FRAMEWORKS Sinatra,"
+    FRAMEWORKS=$(echo "$FRAMEWORKS" | sed 's/,$//' | sed 's/^ //')
+  else
+    STACK="generic"
+    PKG_MGR=""
+    FRAMEWORKS=""
+  fi
+}
+
+# -- tech stack section -------------------------------------------------------
+
+tech_stack_section() {
+  case "$STACK" in
+    node)
+      echo "- **Language:** JavaScript/TypeScript"
+      echo "- **Package Manager:** $PKG_MGR"
+      [ -n "$FRAMEWORKS" ] && echo "- **Frameworks:** $FRAMEWORKS"
+      ;;
+    python)
+      echo "- **Language:** Python"
+      echo "- **Package Manager:** $PKG_MGR"
+      [ -n "$FRAMEWORKS" ] && echo "- **Frameworks:** $FRAMEWORKS"
+      ;;
+    rust)
+      echo "- **Language:** Rust"
+      echo "- **Package Manager:** $PKG_MGR"
+      [ -n "$FRAMEWORKS" ] && echo "- **Frameworks:** $FRAMEWORKS"
+      ;;
+    go)
+      echo "- **Language:** Go"
+      echo "- **Package Manager:** go modules"
+      [ -n "$FRAMEWORKS" ] && echo "- **Frameworks:** $FRAMEWORKS"
+      ;;
+    ruby)
+      echo "- **Language:** Ruby"
+      echo "- **Package Manager:** $PKG_MGR"
+      [ -n "$FRAMEWORKS" ] && echo "- **Frameworks:** $FRAMEWORKS"
+      ;;
+    *)
+      echo "- **Language:** TODO"
+      echo "- **Package Manager:** TODO"
+      ;;
+  esac
+}
+
+# -- dev commands section -----------------------------------------------------
+
+dev_commands_section() {
+  case "$STACK" in
+    node)
+      RUN="$PKG_MGR run"
+      [ "$PKG_MGR" = "yarn" ] && RUN="yarn"
+      [ "$PKG_MGR" = "bun" ] && RUN="bun run"
+      cat <<EOF
+\`\`\`sh
+$PKG_MGR install        # install dependencies
+$RUN dev            # start dev server
+$RUN build          # production build
+$RUN test           # run tests
+$RUN lint           # lint
+\`\`\`
+EOF
+      ;;
+    python)
+      case "$PKG_MGR" in
+        poetry)
+          cat <<EOF
+\`\`\`sh
+poetry install          # install dependencies
+poetry run pytest       # run tests
+poetry run python -m myapp  # run the app
+\`\`\`
+EOF
+          ;;
+        uv)
+          cat <<EOF
+\`\`\`sh
+uv sync                 # install dependencies
+uv run pytest           # run tests
+uv run python -m myapp  # run the app
+\`\`\`
+EOF
+          ;;
+        *)
+          cat <<EOF
+\`\`\`sh
+pip install -r requirements.txt  # install dependencies
+pytest                           # run tests
+python -m myapp                  # run the app
+\`\`\`
+EOF
+          ;;
+      esac
+      ;;
+    rust)
+      cat <<EOF
+\`\`\`sh
+cargo build             # build
+cargo run               # run
+cargo test              # run tests
+cargo clippy            # lint
+cargo fmt               # format
+\`\`\`
+EOF
+      ;;
+    go)
+      cat <<EOF
+\`\`\`sh
+go build ./...          # build
+go test ./...           # run tests
+go vet ./...            # lint
+go run .                # run
+\`\`\`
+EOF
+      ;;
+    ruby)
+      cat <<EOF
+\`\`\`sh
+bundle install          # install dependencies
+bundle exec rake test   # run tests
+bundle exec rails s     # start server (Rails)
+\`\`\`
+EOF
+      ;;
+    *)
+      cat <<EOF
+\`\`\`sh
+# TODO: Add build, test, and dev commands
+\`\`\`
+EOF
+      ;;
+  esac
+}
+
+# -- conventions section ------------------------------------------------------
+
+conventions_section() {
+  case "$STACK" in
+    node)
+      cat <<EOF
+- Use ES modules (import/export) over CommonJS (require)
+- Prefer async/await over raw promises
+- Use named exports; default exports only for pages/layouts
+EOF
+      ;;
+    python)
+      cat <<EOF
+- Follow PEP 8 style
+- Use type hints for function signatures
+- Prefer pathlib over os.path
+EOF
+      ;;
+    rust)
+      cat <<EOF
+- Run clippy before committing
+- Use \`thiserror\` for library errors, \`anyhow\` for application errors
+- Prefer iterators over manual loops
+EOF
+      ;;
+    go)
+      cat <<EOF
+- Follow standard Go project layout
+- Handle all errors explicitly; no blank \`_\` on error returns
+- Use table-driven tests
+EOF
+      ;;
+    ruby)
+      cat <<EOF
+- Follow Ruby Style Guide
+- Prefer symbols over strings for hash keys
+- Keep controllers thin, models handle business logic
+EOF
+      ;;
+    *)
+      cat <<EOF
+- TODO: Add project conventions
+EOF
+      ;;
+  esac
+}
+
+# -- avoid section ------------------------------------------------------------
+
+avoid_section() {
+  case "$STACK" in
+    node)
+      cat <<EOF
+- Do not use \`var\`; use \`const\` or \`let\`
+- Do not use \`any\` type in TypeScript; prefer explicit types
+- Do not commit node_modules or .env files
+- Do not add new dependencies without discussion
+EOF
+      ;;
+    python)
+      cat <<EOF
+- Do not use mutable default arguments
+- Do not use bare \`except:\`; catch specific exceptions
+- Do not commit .env or __pycache__
+EOF
+      ;;
+    rust)
+      cat <<EOF
+- Do not use \`unwrap()\` in library code; use proper error handling
+- Do not use \`unsafe\` without a safety comment
+- Do not suppress clippy warnings without justification
+EOF
+      ;;
+    go)
+      cat <<EOF
+- Do not use \`panic\` for normal error handling
+- Do not use global mutable state
+- Do not ignore errors with blank identifier
+EOF
+      ;;
+    ruby)
+      cat <<EOF
+- Do not use monkey-patching in production code
+- Do not put business logic in controllers
+- Do not commit .env or secrets
+EOF
+      ;;
+    *)
+      cat <<EOF
+- Do not commit secrets, credentials, or .env files
+- Do not add dependencies without discussion
+EOF
+      ;;
+  esac
+}
+
+# -- main ---------------------------------------------------------------------
+
+# Check for existing CLAUDE.md
+if [ -f CLAUDE.md ]; then
+  printf "CLAUDE.md already exists. Overwrite? [y/N] "
+  read -r answer
+  case "$answer" in
+    [yY]*) ;;
+    *) echo "Aborted."; exit 0 ;;
+  esac
+fi
+
+detect_stack
+
+# Create .claude/ directory
+mkdir -p .claude
+
+# Generate CLAUDE.md
+cat > CLAUDE.md <<HEADER
+# Project Overview
+
+TODO: Describe what this project does and why it exists.
+
+## Tech Stack
+
+$(tech_stack_section)
+
+## Development
+
+$(dev_commands_section)
+
+## Architecture
+
+TODO: Describe the project structure and key architectural decisions.
+
+## Conventions
+
+$(conventions_section)
+
+## Avoid
+
+$(avoid_section)
+HEADER
+
+echo "Created CLAUDE.md and .claude/ directory."
+echo "Edit CLAUDE.md to fill in the TODOs for your project."
