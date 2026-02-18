@@ -1,0 +1,15 @@
+#!/bin/zsh
+#
+# Quickly jump into a project directory and launch Claude Code.
+#
+# Type:
+#
+#   ccw <tab>
+#
+# ...to autocomplete on all of your projects in $PROJECTS, then open
+# Claude Code in that directory. Works just like `c` but starts a
+# Claude session.
+#
+#   ccw holm<tab>/bo<tab>
+
+cd "$PROJECTS/$1" && claude --dangerously-skip-permissions --chrome

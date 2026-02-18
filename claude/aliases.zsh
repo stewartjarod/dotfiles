@@ -1,16 +1,6 @@
-alias cc='claude'
-alias ccr='claude --continue'
-alias ccp='claude --permission-mode plan'
-alias ccd='claude --dangerously-skip-permissions'
-
-# Launch claude in a specific directory
-ccw() {
-  if [ -n "$1" ]; then
-    cd "$1" && claude
-  else
-    echo "Usage: ccw <directory>"
-  fi
-}
+alias cc='claude --dangerously-skip-permissions --chrome'
+alias ccr='claude --continue --dangerously-skip-permissions --chrome'
+alias ccp='claude --permission-mode plan --chrome'
 
 # Review current PR with claude
 ccpr() {

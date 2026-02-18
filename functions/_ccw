@@ -1,0 +1,4 @@
+#compdef ccw
+_files -W $PROJECTS -/
+
+# See further documentation in `functions/ccw`.
